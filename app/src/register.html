@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AarogyaCoin - Register</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        background: linear-gradient(135deg, #e3f2fd 0%, #f8bbd0 100%);
+        min-height: 100vh;
+    }
+    .navbar {
+        margin-bottom: 70px;
+        border-radius: 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .navbar-brand {
+        font-weight: 700;
+        font-size: 1.7em;
+        letter-spacing: 1px;
+    }
+    .panel {
+        margin-bottom: 60px;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        border: none;
+        background: #fff;
+    }
+    .panel-heading {
+        margin-bottom: 20px;
+        background: linear-gradient(90deg, #1976d2 0%, #c2185b 100%);
+        color: #fff;
+        border-radius: 12px 12px 0 0;
+        box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+        padding: 30px 20px 20px 20px;
+    }
+    .panel-body {
+        padding: 30px 30px 20px 30px;
+    }
+    .form-control {
+        border-radius: 8px;
+        font-size: 1.1em;
+        padding: 12px 14px;
+        box-shadow: 0 1px 4px rgba(33,150,243,0.05);
+    }
+    .btn-primary {
+        background: linear-gradient(90deg, #1976d2 0%, #c2185b 100%);
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.15em;
+        padding: 12px 36px;
+        box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+        transition: background 0.3s;
+    }
+    .btn-primary:hover {
+        background: linear-gradient(90deg, #1565c0 0%, #ad1457 100%);
+    }
+    .alert {
+        border-radius: 8px;
+        font-size: 1.05em;
+        box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+    }
+    .form-group label {
+        font-weight: 500;
+        font-size: 1.08em;
+        color: #1976d2;
+    }
+    .form-horizontal .form-group {
+        margin-bottom: 28px;
+    }
+    .text-center h3 {
+        font-weight: 700;
+        letter-spacing: 1px;
+        font-size: 2em;
+    }
+    @media (max-width: 768px) {
+        .panel-body {
+            padding: 18px 8px 10px 8px;
+        }
+        .panel-heading {
+            padding: 18px 8px 10px 8px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">AarogyaCoin</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="./index.html">Login</a></li>
+                    <li class="active"><a href="./register.html">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="text-center"><i class="glyphicon glyphicon-user"></i> Register for AarogyaCoin</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="alert alert-danger col-sm-10 col-sm-offset-1" style="display: none;"></div>
+                    <div class="alert alert-info col-sm-10 col-sm-offset-1" style="display: none;">
+                        <strong><i class="glyphicon glyphicon-info-sign"></i> Info!</strong> A user with this address is already registered.
+                    </div>
+                </div>
+                <form name="registerForm" class="form-horizontal" autocomplete="off" style="margin-top: 18px;">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="name"><i class="glyphicon glyphicon-font"></i> Name:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="name" placeholder="Enter your full name" name="Name" required autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="age"><i class="glyphicon glyphicon-calendar"></i> Age:</label>
+                        <div class="col-sm-7">
+                            <input type="number" class="form-control" id="age" placeholder="Enter your age" name="Age" required min="0" max="120">
+                        </div>
+                    </div>
+                    <div class="form-group"> 
+                        <label for="designation" class="control-label col-sm-3"><i class="glyphicon glyphicon-briefcase"></i> Registering as:</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="designation" required>
+                                <option selected disabled>-- Please Select --</option>
+                                <option value="0">Patient</option>
+                                <option value="1">Doctor</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <div class="text-center" style="margin-top: 30px;">
+                    <button class="btn btn-primary btn-lg" onclick="addAgent()"><i class="glyphicon glyphicon-ok"></i> Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="/js/web3.min.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+    const BACKEND_URL = 'http://localhost:3000';
+
+    async function addAgent() {
+        $(".alert-danger").hide();
+        $(".alert-info").hide();
+
+        try {
+            const publicKey = await connect();
+            if (!publicKey) {
+                alert("Please connect your MetaMask wallet to register.");
+                return;
+            }
+
+            const name = $("#name").val();
+            const age = $("#age").val();
+            const designation = $("#designation").val();
+            
+            if (!name || !age || designation === null) {
+                alert('Please fill all fields.');
+                return;
+            }
+            
+            console.log("Public Key:", publicKey);
+
+            const patientList = await new Promise((resolve, reject) => {
+                contractInstance.get_patient_list({gas: 1000000}, (e, r) => e ? reject(e) : resolve(r));
+            });
+            const doctorList = await new Promise((resolve, reject) => {
+                contractInstance.get_doctor_list({gas: 1000000}, (e, r) => e ? reject(e) : resolve(r));
+            });
+
+            if (patientList.map(a => a.toLowerCase()).includes(publicKey.toLowerCase()) || doctorList.map(a => a.toLowerCase()).includes(publicKey.toLowerCase())) {
+                $(".alert-info").show();
+                return;
+            }
+            
+            if (designation === "0") { // Patient
+                const initialRecordContent = `Name: ${name}\nPublic Key: ${publicKey}\n\n--- Medical History ---\n`;
+                
+                const response = await fetch(`${BACKEND_URL}/api/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        patientAddress: publicKey,
+                        content: initialRecordContent
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Backend registration failed with status: ${response.status}. Response: ${errorText}`);
+                }
+
+                const data = await response.json();
+                if (!data.success) {
+                    throw new Error(data.message || 'Backend registration failed.');
+                }
+                
+                console.log('Record created in MongoDB.');
+
+                contractInstance.add_agent(name, age, designation, {from: publicKey, gas: 1000000}, (err, res) => {
+                    if (!err) {
+                        alert('Registration successful! Redirecting...');
+                        window.location.href = "./patient.html";
+                    } else {
+                        throw err;
+                    }
+                });
+            } else if (designation === "1") { // Doctor
+                contractInstance.add_agent(name, age, designation, {from: publicKey, gas: 1000000}, (err, res) => {
+                    if (!err) {
+                        alert('Registration successful! Redirecting...');
+                        window.location.href = "./doctor.html";
+                    } else {
+                       throw err;
+                    }
+                });
+            }
+        } catch (error) {
+            console.error('Error during registration:', error);
+            $(".alert-danger").text(`An error occurred: ${error.message}. Check the console.`).show();
+        }
+    }
+</script>
+
+</body>
+</html>

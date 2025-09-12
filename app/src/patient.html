@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AarogyaCoin - Patient</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f8bbd0 100%);
+            min-height: 100vh;
+        }
+        .navbar {
+            margin-bottom: 70px;
+            border-radius: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.7em;
+            letter-spacing: 1px;
+        }
+        .breadcrumb {
+            background: #f3e5f5;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-size: 1.08em;
+        }
+        .panel {
+            margin-bottom: 60px;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            border: none;
+            background: #fff;
+        }
+        .panel-heading {
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #1976d2 0%, #c2185b 100%);
+            color: #fff;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+            padding: 30px 20px 20px 20px;
+        }
+        .panel-body {
+            padding: 30px 30px 20px 30px;
+        }
+        .form-control {
+            border-radius: 8px;
+            font-size: 1.1em;
+            padding: 12px 14px;
+            box-shadow: 0 1px 4px rgba(33,150,243,0.05);
+        }
+        .btn-primary, .btn-info, .btn-warning, .btn-danger {
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05em;
+            padding: 10px 28px;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+            transition: background 0.3s;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #1976d2 0%, #c2185b 100%);
+            border: none;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #1565c0 0%, #ad1457 100%);
+        }
+        .btn-info {
+            background: linear-gradient(90deg, #0288d1 0%, #43a047 100%);
+            border: none;
+        }
+        .btn-info:hover {
+            background: linear-gradient(90deg, #0277bd 0%, #388e3c 100%);
+        }
+        .btn-warning {
+            background: linear-gradient(90deg, #ffa000 0%, #c2185b 100%);
+            border: none;
+        }
+        .btn-warning:hover {
+            background: linear-gradient(90deg, #ff8f00 0%, #ad1457 100%);
+        }
+        .btn-danger {
+            background: linear-gradient(90deg, #d32f2f 0%, #c2185b 100%);
+            border: none;
+        }
+        .btn-danger:hover {
+            background: linear-gradient(90deg, #b71c1c 0%, #ad1457 100%);
+        }
+        .alert {
+            border-radius: 8px;
+            font-size: 1.05em;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+        }
+        .table {
+            background: #fafafa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(33,150,243,0.05);
+        }
+        .table th {
+            background: #e3f2fd;
+            color: #1976d2;
+            font-weight: 600;
+            font-size: 1.08em;
+        }
+        .table-hover > tbody > tr:hover {
+            background-color: #f8bbd0;
+        }
+        .form-group label {
+            font-weight: 500;
+            font-size: 1.08em;
+            color: #1976d2;
+        }
+        .text-center h3 {
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 2em;
+        }
+        .panel-footer {
+            background: #f3e5f5;
+            border-radius: 0 0 12px 12px;
+            padding: 10px 20px;
+            color: #888;
+            font-size: 1em;
+        }
+        @media (max-width: 768px) {
+            .panel-body {
+                padding: 18px 8px 10px 8px;
+            }
+            .panel-heading {
+                padding: 18px 8px 10px 8px;
+            }
+        }
+        .publicKeyDoctor { display: none; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand" href="#"><i class="glyphicon glyphicon-heart"></i> AarogyaCoin</a></div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right"><li><a href="./index.html"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li></ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="./index.html"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+            <li class="active"><i class="glyphicon glyphicon-user"></i> Patient Dashboard</li>
+        </ol>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="text-center"><i class="glyphicon glyphicon-user"></i> Personal Information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <table class="table">
+                            <tr><th><i class="glyphicon glyphicon-font"></i> Name:</th><td id="name"></td></tr>
+                            <tr><th><i class="glyphicon glyphicon-calendar"></i> Age:</th><td id="age"></td></tr>
+                        </table>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-info btn-lg" onclick="showRecords(this)"><i class="glyphicon glyphicon-eye-open"></i> View Medical Records</button>
+                        </div>
+                        <pre id="records" style="margin-top: 20px; display: none;"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="text-center"><i class="glyphicon glyphicon-share-alt"></i> Share Your Medical Record</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-info col-sm-10 col-sm-offset-1" style="display: none;"></div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="permitDoctorList" class="control-label col-sm-3"><i class="glyphicon glyphicon-user"></i> Doctor:</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="permitDoctorList"><option selected disabled>-- Please Select --</option></select>
+                        </div>
+                    </div>
+                </form>
+                <div class="text-center">
+                    <button onclick="giveAccess()" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-plus"></i> Grant Access</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="text-center"><i class="glyphicon glyphicon-lock"></i> Current EMR Access Holders</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-danger col-sm-10 col-sm-offset-1" style="display: none;"></div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <table id="accessDoc" class="table table-hover">
+                            <thead><tr><th><i class="glyphicon glyphicon-user"></i> Doctor</th><th class="publicKeyDoctor">Public Key</th><th><i class="glyphicon glyphicon-remove"></i> Action</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-center">
+            &copy; 2025 AarogyaCoin. All rights reserved.
+        </div>
+    </div>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="/js/web3.min.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+    const BACKEND_URL = 'http://localhost:3000';
+    let key;
+    let recordsVisible = false;
+
+    $(window).on('load', async function() {
+        const connectedAccount = await connect();
+        if (connectedAccount) {
+            key = connectedAccount.toLowerCase();
+            initializePage();
+        }
+    });
+
+    function initializePage() {
+        $(".alert-info, .alert-danger").hide();
+        loadPatientDetails();
+        loadDoctorListForAccess();
+        loadAccessHolders();
+    }
+
+    function loadPatientDetails() {
+        contractInstance.get_patient.call(key, { from: key, gas: 1000000 }, function(error, result) {
+            if (!error) {
+                $("#name").html(result[0]);
+                $("#age").html(result[1].c[0]);
+            } else {
+                console.error("Error fetching patient details:", error);
+            }
+        });
+    }
+    
+    function loadDoctorListForAccess() {
+        contractInstance.get_doctor_list({ from: key, gas: 1000000 }, function(error, doctorList) {
+            if (!error) {
+                const list = $("#permitDoctorList");
+                list.find('option:not(:first)').remove();
+                doctorList.forEach(doctorAddress => {
+                    contractInstance.get_doctor.call(doctorAddress, { from: key, gas: 1000000 }, function(err, docInfo) {
+                        if (!err) list.append(new Option(docInfo[0], doctorAddress));
+                    });
+                });
+            } else {
+                console.error("Error fetching doctor list:", error);
+            }
+        });
+    }
+
+    function loadAccessHolders() {
+        contractInstance.get_accessed_doctorlist_for_patient(key, { from: key, gas: 1000000 }, function(error, doctorAddressList) {
+            if (!error) {
+                const tableBody = $("#accessDoc tbody");
+                tableBody.empty();
+                doctorAddressList.forEach((doctorAddress, index) => {
+                    contractInstance.get_doctor.call(doctorAddress, { from: key, gas: 1000000 }, function(err, docInfo) {
+                        if (!err) {
+                            const row = `<tr>
+                                <td>${docInfo[0]}</td>
+                                <td class="publicKeyDoctor">${doctorAddress}</td>
+                                <td><button onclick="revokeAccess(this)" class="btn btn-danger">Revoke Access</button></td>
+                            </tr>`;
+                            tableBody.append(row);
+                        }
+                    });
+                });
+            } else {
+                console.error("Error fetching access holders:", error);
+            }
+        });
+    }
+
+    function showRecords(element) {
+        recordsVisible = !recordsVisible;
+        const $recordsPre = $("#records");
+        
+        if (recordsVisible) {
+            $.get(`${BACKEND_URL}/api/records/${key}`, { requester: key })
+                .done(function(data) {
+                    if (data.success) {
+                        $recordsPre.text(data.content).show();
+                        $(element).text("Hide Medical Records").removeClass("btn-info").addClass("btn-warning");
+                    } else {
+                        alert(data.message || "Could not fetch records.");
+                        recordsVisible = false;
+                    }
+                })
+                .fail(function() {
+                    alert("Error fetching records from server.");
+                    recordsVisible = false;
+                });
+        } else {
+            $recordsPre.hide();
+            $(element).text("View Medical Records").removeClass("btn-warning").addClass("btn-info");
+        }
+    }
+
+    function giveAccess() {
+        const doctorAddress = $("#permitDoctorList").val();
+        if (!doctorAddress) {
+            alert("Please select a doctor.");
+            return;
+        }
+
+        contractInstance.permit_access(doctorAddress, { from: key, gas: 1000000, value: web3.toWei(2, 'ether') }, function(error, txHash) {
+            if (!error) {
+                alert("Access granted successfully! Refreshing list...");
+                setTimeout(loadAccessHolders, 1000); // Give blockchain a moment to update
+            } else {
+                $(".alert-info").text("Transaction failed. The doctor may already have access.").show().delay(3000).fadeOut();
+                console.error("Grant access error:", error);
+            }
+        });
+    }
+
+    function revokeAccess(element) {
+        const row = $(element).closest('tr');
+        const docKey = row.find('.publicKeyDoctor').text();
+
+        contractInstance.revoke_access(docKey, { from: key, gas: 1000000, value: web3.toWei(2, 'ether') }, function(error, txHash) {
+            if (!error) {
+                alert("Access revoked successfully!");
+                row.remove();
+            } else {
+                $(".alert-danger").text("Access could not be revoked.").show().delay(3000).fadeOut();
+                console.error("Revoke access error:", error);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
