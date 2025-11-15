@@ -1,4 +1,4 @@
-# 🔐 LAB 1 – BLOCKCHAIN PRIMITIVES  
+# LAB 1 – BLOCKCHAIN PRIMITIVES  
 *(OpenSSL 3.x only – 2024/25 SAFE commands)*
 
 Run every step on a fresh folder.  
